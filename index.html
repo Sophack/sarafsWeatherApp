@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html land="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>Weather</title>
+    </head>
+    <body>
+        <div class="weather-dash"> 
+            <h2>Weather Dashboard</h2>
+        </div>
+        <div class="container">
+    
+        <div class="search">
+           <div class="line">
+            <h3>Search for a City:</h3>
+            <input type="text" id="cityInput" class="search-bar" placeholder="San Diego">
+            <button type="button" onclick="getInfo()">Search</button>
+            </div>
+        </div>
+    
+        
+    <div class="weather-display">
+        <section id="city">
+            <h3 id="cityName"></h3>
+            <div id="date">9/13/2022</div> 
+
+            <div class="temp">Temp:</div>
+            <div class="wind">Wind:</div>
+            <div class="humidity">Humidity:</div>
+        </section>
+        </div>
+
+
+        <div id="forecast" class="forecast5">
+            <h4>5-day Forecast:</h4>
+            <div id="iconsContainer">    
+                <div class = "icons">
+                    <p class="weather" id="day1"></p>
+                    <div class="image"><img class="imgClass" id="img1"></div>
+                    <p class="minValues" id="day1">Loading...</p>
+                </div>
+                <div class = "icons">
+                    <p class="weather" id="day2"></p>
+                    <div class="image"><img class="imgClass" id="img2"></div>
+                    <p class="minValues" id="day2">Loading...</p>
+                </div>
+                <div class = "icons">
+                    <p class="weather" id="day3"></p>
+                    <div class="image"><img class="imgClass" id="img3"></div>
+                    <p class="minValues" id="day3">Loading...</p>
+                </div>
+                <div class = "icons">
+                    <p class="weather" id="day4"></p>
+                    <div class="image"><img class="imgClass" id="img4"></div>
+                    <p class="minValues" id="day4">Loading...</p>
+                </div>
+                <div class = "icons">
+                    <p class="weather" id="day5"></p>
+                    <div class="image"><img class="imgClass" id="img5"></div>
+                    <p class="minValues" id="day5">Loading...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+    <script src="script.js"></script>
+</html>
