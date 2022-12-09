@@ -45,12 +45,12 @@ function getInfo () {
                       //getting the icons for the specific days  
                     for(i=0; i<5; i++){
                         document.getElementById("img" +(i+1)).src="http://openweathermap.org/img/wn/" + data.list[i].weather[0].icon+".png";
-                    }
-   }})
+                    }}
+   
 
 //throw statement to target user error
     throw(err => alert("Something Went Wrong: Try Checking Your Internet Connection"))
-}
+}) }
 
 
 //function for getting the current date 
@@ -58,7 +58,7 @@ var myDate = new Date();
 
 document.getElementById("date").innerHTML = myDate.toLocaleDateString();
 //Getting and displaying the text for the upcoming five days of the week
-var weekday = [, "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday",];
+var weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday",];
 
 //Function to get the correct integer for the index of the days array
 function CheckDay(day){
@@ -74,6 +74,6 @@ function CheckDay(day){
         document.getElementById("day" + (i+1)).innerHTML = weekday[CheckDay(i)];
     }
 
-    document.getElementById("img1").src = "http://openweathermap.org/img/w/"+
+    document.getElementById("img").src = "http://openweathermap.org/img/w/"+
 data.list[0].weather[0].icon
 +".png";

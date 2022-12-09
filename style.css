@@ -89,6 +89,11 @@ button {
     font-size: larger;
 
 }
+#day {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid pink;
+}
 
 #city {
     width: 100px;
