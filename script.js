@@ -1,3 +1,19 @@
+//function for getting the current date 
+
+
+// document.getElementById("date").innerHTML = myDate.toLocaleDateString();
+//Getting and displaying the text for the upcoming five days of the week
+var now = new Date();
+const { name } = data;
+var daysOfYear = [];
+for (var d = new Date(2012, 0, 1); d <= now; d.setDate(d.getDate() + 1)) {
+    daysOfYear.push(new Date(d));
+}
+
+    document.getElementById("img").src = "http://openweathermap.org/img/w/"+
+data.list[0].weather[0].icon
++".png";
+
 
 function getInfo () {
 
@@ -17,63 +33,27 @@ function getInfo () {
    //promises
     .then(response => response.json())
     .then(data => {
+            const { name } = data;
+            const { icon, description } = data.weather[1];
+            const { temp, humidity } = data.main;
+            const { speed } = data.wind;
+            document.querySelector(".city").innerText = "Weather in " + name;
+            document.querySelector(".icon").src =
+              "https://openweathermap.org/img/wn/" + icon + ".png";
+            document.querySelector(".description").innerText = description;
+            document.querySelector(".temp").innerText = temp + "°C";
+            document.querySelector(".humidity").innerText =
+              "Humidity: " + humidity + "%";
+            document.querySelector(".wind").innerText =
+              "Wind speed: " + speed + " km/h";
+            document.querySelector(".weather").classList.remove("loading");
+            document.body.style.backgroundImage =
+              "url('https://source.unsplash.com/1600x900/?" + name + "')";
+    })};
 
 
-            //getting the temp for each day using for loops
-            for(i = 0; i<5; i++){
-                document.getElementById("date" + (i+1)).innerHTML + Number(data.list[i].main.temp).toFixed(2); 
-                
-                //Number(1.3450001).toFixed(2); // 1.35
-            }
-        
-
-   //getting the wind for each day using for loops
-                    for(i = 0; i<5; i++){
-                    document.getElementById("day" + (i+1) + "Wind:").innerHTML = 
-                    "Wind: " + Number(data.list[i].wind.speed).toFixed(2)+ "MPH";
-                        
-                    }
-
-                    //getting the humidity for each day using for loops
-
-                    for(i = 0; i<5; i++){
-
-                        document.getElementById("day" + (i+1) + "Humidity").innerHTML = 
-
-                        "Humidity: " + Number(data.list[i].main.humidity).toFixed(0)+ "%";
-                    }
-                      //getting the icons for the specific days  
-                    for(i=0; i<5; i++){
-                        document.getElementById("img" +(i+1)).src="http://openweathermap.org/img/wn/" + data.list[i].weather[0].icon+".png";
-                    }}
-   
-
-//throw statement to target user error
-    throw(err => alert("Something Went Wrong: Try Checking Your Internet Connection"))
-}) }
 
 
-//function for getting the current date 
-var myDate = new Date();
 
-document.getElementById("date").innerHTML = myDate.toLocaleDateString();
-//Getting and displaying the text for the upcoming five days of the week
-var weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday",];
 
-//Function to get the correct integer for the index of the days array
-function CheckDay(day){
-    if(day + myDate.getDay() > 6){
-        return day + myDate.getDay() - 7;
-    }
-    else{
-        return day + myDate.getDay();
-    }
-}
 
-    for(i = 0; i<5; i++){
-        document.getElementById("day" + (i+1)).innerHTML = weekday[CheckDay(i)];
-    }
-
-    document.getElementById("img").src = "http://openweathermap.org/img/w/"+
-data.list[0].weather[0].icon
-+".png";
