@@ -21,8 +21,8 @@ function getInfo () {
 
             //getting the temp for each day using for loops
             for(i = 0; i<5; i++){
-                document.getElementById("day" + (i+1) + "Temp:").innerHTML = 
-                "Temp: " + Number(data.list[i].main.temp).toFixed(2)+ "°C";
+                document.getElementById("date" + (i+1)).innerHTML + Number(data.list[i].main.temp).toFixed(2); 
+                
                 //Number(1.3450001).toFixed(2); // 1.35
             }
         
@@ -41,7 +41,7 @@ function getInfo () {
                         document.getElementById("day" + (i+1) + "Humidity").innerHTML = 
 
                         "Humidity: " + Number(data.list[i].main.humidity).toFixed(0)+ "%";
-
+                    }
                       //getting the icons for the specific days  
                     for(i=0; i<5; i++){
                         document.getElementById("img" +(i+1)).src="http://openweathermap.org/img/wn/" + data.list[i].weather[0].icon+".png";
