@@ -43,7 +43,7 @@
       const humidity = data.list[0].main.humidity;
       const icon = data.list[0].weather[0].icon;
  
- document.querySelector("#cityName").innerText = "Weather in " + name;
+ document.querySelector("#cityName").innerText = name;
  document.querySelector(".icon").src =
    "https://openweathermap.org/img/wn/" + icon + "@2x.png";
  document.querySelector(".temp").innerText = "Temp: " + temp + "°C";
@@ -52,7 +52,7 @@
  document.querySelector(".wind").innerText =
    "Wind speed: " + speed + " km/h";
 
- document.querySelector("#date").innerText = date;
+ document.querySelector("#date").innerText = (date.toDateString());
 
  
       //should log all the 5 variables into console 
@@ -61,8 +61,6 @@
   }
 
 
-//function to search by city
-  
    
      //
   function handleSearch(){ 
@@ -87,22 +85,22 @@ fetchWeather("Atlanta");
      //create function to display under forecast 
 
 
-function weatherForecast (){
+function weatherForecast (displayWeather){
   const days = [date(i+1), date(i+2), date(i+3)]
     for(i=0;i<5;i++){
-      document.getElementById(days + (i+1)).innerHTML = "Temp: " + (temp).toFixed(1);
+      document.getElementById(days + (i+1)).innerHTML;
     }
     for(i=0;i<5;i++){
-      document.getElementById(days + (i+2) + temp).innerHTML = "Temp: " + Number(data.list[i].main.temp).toFixed(1);
+      document.getElementById(days + (i+2) + temp).innerHTML = "Temp: " + (data.list[i].main.temp).toFixed(1);
     }
     for(i=0;i<5;i++){
-      document.getElementById(days + (i+3) + temp).innerHTML = "Temp: " + Number(data.list[i].main.temp).toFixed(1);
+      document.getElementById(days + (i+3) + temp).innerHTML = "Temp: " + (data.list[i].main.temp).toFixed(1);
     }
     for(i=0;i<5;i++){
-      document.getElementById(days + (i+4) + temp).innerHTML = "Temp: " + Number(data.list[i].main.temp).toFixed(1);
+      document.getElementById(days + (i+4) + temp).innerHTML = "Temp: " + (data.list[i].main.temp).toFixed(1);
     }
     for(i=0;i<5;i++){
-      document.getElementById(days + (i+5) + temp).innerHTML = "Temp: " + Number(data.list[i].main.temp).toFixed(1);
+      document.getElementById(days + (i+5) + temp).innerHTML = "Temp: " + (data.list[i].main.temp).toFixed(1);
     }
   }
 console.log(weatherForecast)
