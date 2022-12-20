@@ -4,6 +4,8 @@ let searchCity = document.querySelector("#cityInput");
 
 let apiKey = "80de82d1907b221f875a400ad16653d2";
 
+let cityName = document.querySelector("#cityName")
+
 //we can call the function below to execute user search input
 
 function fetchWeather(city) {
@@ -34,9 +36,10 @@ function displayWeather(data) {
   const icon = data.list[0].weather[0].icon;
 
   //setting up where to retreive the information from the HTML
-  document.querySelector("#cityName").innerText = name;
+  cityName.innerText = name;
   document.querySelector(".icon").src =
     "https://openweathermap.org/img/wn/" + icon + "@2x.png";
+
   document.querySelector(".temp").innerText = "Temp: " + temp + "°C";
   document.querySelector(".humidity").innerText = "Humidity: " + humidity + "%";
   document.querySelector(".wind").innerText = "Wind speed: " + speed + " km/h";
@@ -63,9 +66,11 @@ document.querySelector(".srchButton").addEventListener("click", handleSearch);
 fetchWeather("Atlanta");
 
 function weatherForecast() {
-  setData = (displayWeather) => {
-    document.querySelector(".icon").src =
-      "https://openweathermap.org/img/wn/" + icon + "@2x.png";
+  //after changing the value of the user input, get object from local storage
+
+
+    const weatherDetails = localStorage.getItem("searchCity");
+    weather = JSON.parse(weatherDetails)
 
     const weatherDays = [date, temp, speed];
     const date = new Date();
@@ -88,4 +93,4 @@ function weatherForecast() {
 
   //retreiving previous user input
   localStorage.getItem(searchCity, "value");
-}
+
