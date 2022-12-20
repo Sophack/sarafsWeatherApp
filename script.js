@@ -58,6 +58,8 @@
       //should log all the 5 variables into console 
       console.log(date,name,icon,temp,humidity,speed);
 
+      
+
   }
 
 
@@ -66,7 +68,10 @@
   function handleSearch(){ 
     fetchWeather(searchCity.value);
     displayWeather(fetchWeather);
+
+    
   }
+  localStorage.setItem(searchCity, "value")
 
    document.querySelector(".srchButton")
    .addEventListener("click", handleSearch);
@@ -83,24 +88,19 @@ fetchWeather("Atlanta");
      //currently console.logs the user input 
      //create function to have it show up on app
      //create function to display under forecast 
+     document.querySelector(".icon").src =
+     "https://openweathermap.org/img/wn/" + icon + "@2x.png";
 
+function weatherForecast (){
+  const  weatherDays= [date,temp,speed]
+  const  date  = new Date();
+  const  temp = data.list[0].main.temp;
+  const  speed  = data.list[0].wind.speed;
+  const humidity = data.list[0].main.humidity;
+  const icon = data.list[0].weather[0].icon;
 
-function weatherForecast (displayWeather){
-  const days = [date(i+1), date(i+2), date(i+3)]
     for(i=0;i<5;i++){
-      document.getElementById(days + (i+1)).innerHTML;
-    }
-    for(i=0;i<5;i++){
-      document.getElementById(days + (i+2) + temp).innerHTML = "Temp: " + (data.list[i].main.temp).toFixed(1);
-    }
-    for(i=0;i<5;i++){
-      document.getElementById(days + (i+3) + temp).innerHTML = "Temp: " + (data.list[i].main.temp).toFixed(1);
-    }
-    for(i=0;i<5;i++){
-      document.getElementById(days + (i+4) + temp).innerHTML = "Temp: " + (data.list[i].main.temp).toFixed(1);
-    }
-    for(i=0;i<5;i++){
-      document.getElementById(days + (i+5) + temp).innerHTML = "Temp: " + (data.list[i].main.temp).toFixed(1);
-    }
-  }
-console.log(weatherForecast)
+      document.querySelector(".date").innerText = date + temp + speed + icon + humidity};
+    
+  
+console.log(weatherForecast)};

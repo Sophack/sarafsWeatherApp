@@ -40,6 +40,11 @@ body{
     grid-row: 1;
 }
 
+#weatherContainer{
+    display: flex;
+    flex-direction: row;
+}
+
 .search{
     padding: 0.3rem;
     line-height: 45px;
