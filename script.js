@@ -21,7 +21,8 @@
             throw new Error("Network problems. Unable to get weather"); 
           }})
             .then((data) => 
-            console.log(data))
+            displayWeather(data) )
+            
     } 
   
   //parsing: specific component inside of compiler 
@@ -36,16 +37,16 @@
   function displayWeather (data) {
     //variables and where they will be extracted from
       const  date  = new Date();
-      const  name  = data.city;
-      const  currentWeather  = data.list.weather[0]; //first item in the list
-      const  { temp, humidity } = data.list[2];
-      const  speed  = data.wind;
-
-  document.querySelector("#city").innerText = currentWeather;     
+      const  name  = data.city.name;
+      const  temp = data.list[0].main.temp;
+      const  speed  = data.list[0].wind.speed;
+      const humidity = data.list[0].main.humidity;
+      const icon = data.list[0].weather[0].icon;
+ 
  document.querySelector("#cityName").innerText = "Weather in " + name;
  document.querySelector(".icon").src =
    "https://openweathermap.org/img/wn/" + icon + "@2x.png";
- document.querySelector(".temp").innerText = temp + "°C";
+ document.querySelector(".temp").innerText = "Temp: " + temp + "°C";
  document.querySelector(".humidity").innerText =
    "Humidity: " + humidity + "%";
  document.querySelector(".wind").innerText =
@@ -54,8 +55,8 @@
  document.querySelector("#date").innerText = date;
 
  
-      // //should log all the 5 variables into console 
-      // console.log(date,name,icon,temp,humidity,speed);
+      //should log all the 5 variables into console 
+      console.log(date,name,icon,temp,humidity,speed);
 
   }
 
@@ -75,9 +76,33 @@
 
 fetchWeather("Atlanta");
 
+
+
+
 // document.querySelector(".search-bar").addEventListener("keyup", function (event) {
 // }
   
      //currently console.logs the user input 
      //create function to have it show up on app
      //create function to display under forecast 
+
+
+function weatherForecast (){
+  const days = [date(i+1), date(i+2), date(i+3)]
+    for(i=0;i<5;i++){
+      document.getElementById(days + (i+1)).innerHTML = "Temp: " + (temp).toFixed(1);
+    }
+    for(i=0;i<5;i++){
+      document.getElementById(days + (i+2) + temp).innerHTML = "Temp: " + Number(data.list[i].main.temp).toFixed(1);
+    }
+    for(i=0;i<5;i++){
+      document.getElementById(days + (i+3) + temp).innerHTML = "Temp: " + Number(data.list[i].main.temp).toFixed(1);
+    }
+    for(i=0;i<5;i++){
+      document.getElementById(days + (i+4) + temp).innerHTML = "Temp: " + Number(data.list[i].main.temp).toFixed(1);
+    }
+    for(i=0;i<5;i++){
+      document.getElementById(days + (i+5) + temp).innerHTML = "Temp: " + Number(data.list[i].main.temp).toFixed(1);
+    }
+  }
+console.log(weatherForecast)
