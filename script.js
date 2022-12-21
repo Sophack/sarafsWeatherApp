@@ -1,6 +1,5 @@
 //below selects the user input from the document's input type and lets us search by city name
 
-let searchCity = document.querySelector("#cityInput");
 
 let apiKey = "80de82d1907b221f875a400ad16653d2";
 
@@ -58,16 +57,41 @@ function displayWeather(data) {
   weatherForecast(name);
 }
 
-// //log all the 5 variables into console
-// console.log(date, cityName, icon, temp, humidity, speed);
 
 //function to display the info for the city
+//when user clicks on the button, single data as well as 5 day data is presented 
+//
+
+function saveData(cityName){
+
+  let localStorageData = JSON.parse(localStorage.getItem('searchHistory'));
+  let dataCityObj = {
+    "name":cityName
+
+  }
+  if(
+    localStorageData === null
+  ){
+    localStorageData = [];
+    localStorageData.push(dataCityObj)
+
+  }else {
+    localStorageData.push(dataCityObj)
+  }
+  localStorage.setItem('searchHistory', JSON.stringify(localStorageData))
+
+}
 
 function handleSearch() {
+  
+let searchCity = document.querySelector("#cityInput");
+
+saveData(searchCity.value)
   //passing user input with fetchWeather funciton
   fetchWeather(searchCity.value);
   //calling displayWeather function by passing it with fetchWeather function
   displayWeather(fetchWeather);
+
 }
 
 //button user will click to initiate the search
