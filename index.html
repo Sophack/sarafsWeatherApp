@@ -16,6 +16,9 @@
            <div class="line">
             <h3>Search for a City:</h3>
             <input type="text" id="cityInput" class="search-bar" placeholder="San Diego">
+
+            
+  <!-- changing the value of the user input with command (onChange)  -->
             <button type="button" class="srchButton" onchange="setData()">Search</button>
             </div>
         </div>
@@ -41,64 +44,59 @@
 
     </div>
             <h4>5-day Forecast:</h4>
-<div id="weatherContainer" class="forecast5">
-                <p class="weather" id="day1"></p>
+    <div id="weatherContainer" class="forecast5">
             <div id="date">Day 1</div>
                 <img src="https://openweathermap.org/img/wn/04n.png" alt="" class="icon" />
             <div class="widget">
-                <div class="day1temp">°</div>
+                <div id="day1temp">°</div>
                 <br>
-                <div class="day1wind">MPH</div>
+                <div id="day1wind">MPH</div>
                 <br>
-                <div class="day1humidity">%</div>
+                <div id="day1humidity">%</div>
                 </div>
                 
 
-                    <p class="weather" id="day2"></p>
                 <div id="date">Day 2</div>
                     <img src="https://openweathermap.org/img/wn/04n.png" alt="" class="icon" />
                 <div class="widget">
-                    <div class="day2temp">°</div>
+                    <div id="day2temp">°</div>
                     <br>
-                    <div class="day2wind">MPH</div>
+                    <div id="day2wind">MPH</div>
                     <br>
-                    <div class="day2humidity">%</div>
+                    <div id="day2humidity">%</div>
                 </div>
             
 
-                <p class="weather" id="day3"></p>
             <div id="date">Day 3</div>
                 <img src="https://openweathermap.org/img/wn/04n.png" alt="" class="icon" />
             <div class="widget">
-                <div class="temp3">°</div>
+                <div id="day3temp">°</div>
                 <br>
-                <div class="wind3">MPH</div>
+                <div id="day3wind">MPH</div>
                 <br>
-                <div class="humidity3">%</div>
+                <div id="day3humidity">%</div>
             </div>
         
 
-            <p class="weather" id="day4"></p>
         <div id="date">Day 4</div>
             <img src="https://openweathermap.org/img/wn/04n.png" alt="" class="icon" />
         <div class="widget">
-            <div class="temp4">°</div>
+            <div id="day4temp">°</div>
             <br>
-            <div class="wind4">MPH</div>
+            <div id="day4wind">MPH</div>
             <br>
-            <div class="humidity4">%</div>
+            <div id="day4humidity">%</div>
         </div>
     
 
-        <p class="weather" id="day5"></p>
     <div id="date">Day 5</div>
         <img src="https://openweathermap.org/img/wn/04n.png" alt="" class="icon" />
     <div class="widget">
-        <div class="temp">°</div>
+        <div id="day5temp">°</div>
         <br>
-        <div class="wind">MPH</div>
+        <div id="day5wind">MPH</div>
         <br>
-        <div class="humidity">%</div>
+        <div id="day5humidity">%</div>
     </div>
 </div>
 
