@@ -1,6 +1,5 @@
 //below selects the user input from the document's input type and lets us search by city name
 
-
 let apiKey = "80de82d1907b221f875a400ad16653d2";
 
 //container
@@ -57,41 +56,51 @@ function displayWeather(data) {
   weatherForecast(name);
 }
 
-
 //function to display the info for the city
-//when user clicks on the button, single data as well as 5 day data is presented 
+//when user clicks on the button, single data as well as 5 day data is presented
 //
 
-function saveData(cityName){
-
-  let localStorageData = JSON.parse(localStorage.getItem('searchHistory'));
+function saveData(cityName) {
+  let localStorageData = JSON.parse(localStorage.getItem("searchHistory"));
   let dataCityObj = {
-    "name":cityName
-
-  }
-  if(
-    localStorageData === null
-  ){
+    name: cityName,
+  };
+  if (localStorageData === null) {
     localStorageData = [];
-    localStorageData.push(dataCityObj)
-
-  }else {
-    localStorageData.push(dataCityObj)
+    localStorageData.push(dataCityObj);
+  } else {
+    localStorageData.push(dataCityObj);
   }
-  localStorage.setItem('searchHistory', JSON.stringify(localStorageData))
-
+  localStorage.setItem("searchHistory", JSON.stringify(localStorageData));
+  showSearchHistory()
 }
+function showSearchHistory() {
+  let historyDiv = document.getElementById('history');
+  historyDiv.innerHTML = '';
+  let localStorageData = JSON.parse(localStorage.getItem("searchHistory"));
+  if(localStorageData != null) {
+    for (let i = 0; i < localStorageData.length; i++) {
+      let btnDiv = document.createElement('div');
+      let searchBtn = document.createElement('button');
+      searchBtn.setAttribute('class', 'srchButton');
+      searchBtn.innerHTML= localStorageData[i].name;
+      btnDiv.append(searchBtn);
+      historyDiv.append(btnDiv);
+
+    }
+  }
+}
+showSearchHistory();
 
 function handleSearch() {
-  
-let searchCity = document.querySelector("#cityInput");
+  let searchCity = document.querySelector("#cityInput");
 
-saveData(searchCity.value)
+  saveData(searchCity.value);
+
   //passing user input with fetchWeather funciton
   fetchWeather(searchCity.value);
   //calling displayWeather function by passing it with fetchWeather function
   displayWeather(fetchWeather);
-
 }
 
 //button user will click to initiate the search
@@ -113,21 +122,19 @@ function weatherForecast(cityName) {
     .then((data) => {
       console.log(data);
 
-//give us all 40 elements we only need every 8th element
-     let dataList = data.list;
-     let index = 1; 
-     for (let i = 0; i < dataList.length; i+=8) 
-     {
-      let tempDiv = document.getElementById(`day${index}temp`);
-      tempDiv.innerHTML=`° ${dataList[i].main.temp}`;
-      let windDiv = document.getElementById(`day${index}wind`);
-      windDiv.innerHTML = `${dataList[i].wind.speed} MPH`;
-      let humDiv = document.getElementById(`day${index}humidity`);
-      humDiv.innerHTML = `${dataList[i].main.humidity} %`;
-      index+=1
-      
-     }
-    }) ;
+      //give us all 40 elements we only need every 8th element
+      let dataList = data.list;
+      let index = 1;
+      for (let i = 0; i < dataList.length; i += 8) {
+        let tempDiv = document.getElementById(`day${index}temp`);
+        tempDiv.innerHTML = `° ${dataList[i].main.temp}`;
+        let windDiv = document.getElementById(`day${index}wind`);
+        windDiv.innerHTML = `${dataList[i].wind.speed} MPH`;
+        let humDiv = document.getElementById(`day${index}humidity`);
+        humDiv.innerHTML = `${dataList[i].main.humidity} %`;
+        index += 1;
+      }
+    });
 
   //fetch another API with forecasted data
   weatherDetails = localStorage.getItem("searchCity");
