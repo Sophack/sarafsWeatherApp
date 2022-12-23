@@ -18,12 +18,13 @@ body{
 .container{
     padding: 0.4%;
     display: grid;  
-    grid-template-columns: 300px 600px; 
+    grid-template-columns: 300px 800px; 
     grid-template-rows: 200px 200px; 
     gap: 10px 10px; 
     grid-template-areas: 
       ". ."
       ". ."; 
+    height: 600px;
 }
 
 
@@ -40,10 +41,7 @@ body{
     grid-row: 1;
 }
 
-#weatherContainer{
-    display: flex;
-    flex-direction: row;
-}
+
 
 .search{
     padding: 0.3rem;
@@ -67,8 +65,6 @@ body{
 .line{
     width: 100%;
     border-bottom: 2px solid #9b9fa3;
-
-    
 }
 
 button {
@@ -81,11 +77,19 @@ button {
     padding: 0.8rem;
     border: 1px solid transparent;
     outline: none;
-    color: #fbfcfce3;
-    background-color: #5281d7db;
+    color: #090a0ae3;
+    background-color: #aeb0b5db;
     height: 25px;
     width: 100%;
+    margin-bottom: 10px;
+
   }
+
+
+#blue {
+    background-color: #4c8deedb;
+    color: white;
+}
 
 .weather-display{
     border: solid 1px black;
@@ -93,7 +97,32 @@ button {
     grid-row: 1;
     display: flex;
     flex-direction: column;
+    width: 90%;
+    
 }
+
+.weather-display .widget{
+    background-color: white;
+    color: black;
+    margin-top: 15px;
+
+}
+
+#weatherContainer{
+    display: flex;
+    flex-direction: row;
+    width: max-content;
+}
+
+#weatherContainer h4{
+    height: 30px;
+    width: 150px;
+    background-color: white;
+    color: black;
+    margin-top: -40px;
+    margin-bottom: -10px;
+}
+
 
 #date {
     font-weight: bolder;
@@ -105,17 +134,18 @@ button {
     height: 25px;
 }
 
-.forecast5 {
-    grid-column: 2;
-    grid-row: 2;
-    font-size: larger;
+
+
+.widget{
+    width: 10em;
+    height: 200px;
+    background-color: rgb(30, 30, 48);
+    color: white;
+    margin-left: 10px;
+    margin-top: 50px;
 
 }
-#day {
-    display: flex;
-    flex-direction: column;
-    border: 2px solid pink;
-}
+
 
 #city {
     display: flex;
@@ -127,8 +157,4 @@ button {
 
 }
 
-.widget{
-    display: flex;
-    flex-direction: column;
-}
 

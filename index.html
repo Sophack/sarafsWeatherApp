@@ -6,21 +6,21 @@
         <link rel="stylesheet" href="style.css">
         <title>Weather</title>
     </head>
+    
     <body>
+        
         <div class="weather-dash"> 
             <h2>Weather Dashboard</h2>
         </div>
-<div class="container">
+        
+    <div class="container">
     
         <div class="search">
            <div class="line">
             <h3>Search for a City:</h3>
             <input type="text" id="cityInput" class="search-bar" placeholder="San Diego">
-
-
+            <button type="button" class="srchButton" id="blue">Search</button>
             </div>
-
-            <button type="button" class="srchButton">Search</button>
         </div>
             
         <div id="history"></div>
@@ -29,38 +29,40 @@
     <div class="weather-display">
         <section id="city">
             <h3 id="cityName"></h3><div id="date"></div> 
-            
-        
-            <img src="https://openweathermap.org/img/wn/04n.png" alt="" class="icon" />
-            
+                 <img src="https://openweathermap.org/img/wn/04n.png" alt="" class="icon" /> 
         </section>
-        <div class="widget">
-            <div class="temp">°</div>
-            <br>
-            <div class="wind">MPH</div>
-            <Br>
-            <div class="humidity">%</div>
-        </div>
+        
+            <div class="widget">
+                <div class="temp">°</div>
+                <br>
+                <div class="wind">MPH</div>
+                <Br>
+                <div class="humidity">%</div>
+            </div>
       </div>
     
       
     
-    <h4>5-day Forecast:</h4>
         <div id="weatherContainer" class="forecast5">
-            <div id="date">Day 1</div>
-                <img src="https://openweathermap.org/img/wn/04n.png" alt="" class="icon" />
+                
+               
                 <div class="widget">
+                    <h4>5-day Forecast:</h4>
+                <br>
+                    <div id="date">Day 1</div>
+                    <img src="https://openweathermap.org/img/wn/04n.png" alt="" class="icon" />
                     <div id="day1temp">°</div>
                     <br>
                     <div id="day1wind">MPH</div>
                     <br>
                     <div id="day1humidity">%</div>
-                    </div>
+                </div>
                 
 
-                <div id="date">Day 2</div>
-                    <img src="https://openweathermap.org/img/wn/04n.png" alt="" class="icon" />
+
                 <div class="widget">
+                    <div id="date">Day 2</div>
+                    <img src="https://openweathermap.org/img/wn/04n.png" alt="" class="icon" />
                     <div id="day2temp">°</div>
                     <br>
                     <div id="day2wind">MPH</div>
@@ -69,9 +71,10 @@
                 </div>
             
 
-            <div id="date">Day 3</div>
-                <img src="https://openweathermap.org/img/wn/04n.png" alt="" class="icon" />
+           
             <div class="widget">
+                <div id="date">Day 3</div>
+                <img src="https://openweathermap.org/img/wn/04n.png" alt="" class="icon" />
                 <div id="day3temp">°</div>
                 <br>
                 <div id="day3wind">MPH</div>
@@ -80,27 +83,32 @@
             </div>
         
 
-            <div id="date">Day 4</div>
-            <img src="https://openweathermap.org/img/wn/04n.png" alt="" class="icon" />
-            <div class="widget">
-            <div id="day4temp">°</div>
-            <br>
-            <div id="day4wind">MPH</div>
-            <br>
-            <div id="day4humidity">%</div>
-            </div>
-            </div>
 
-            <div id="date">Day 5</div>
+          
+            <div class="widget">
+                <div id="date">Day 4</div>
                 <img src="https://openweathermap.org/img/wn/04n.png" alt="" class="icon" />
+               <div id="day4temp">°</div>
+                 <br>
+                <div id="day4wind">MPH</div>
+                <br>
+                <div id="day4humidity">%</div>
+            </div>
+            
+
+
+
                     <div class="widget">
+                        <div id="date">Day 5</div>
+                        <img src="https://openweathermap.org/img/wn/04n.png" alt="" class="icon" />
                         <div id="day5temp">°</div>
                             <br>
                         <div id="day5wind">MPH</div>
                             <br>
                         <div id="day5humidity">%</div>
                     </div>
-                </div>
+                </div>     
+     </div>
 
 
     </body>
